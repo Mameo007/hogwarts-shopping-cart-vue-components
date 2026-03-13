@@ -7,26 +7,28 @@
         <div :class="{'hide-order-details': hideDetails}">
             <div class="summary-item">
                 <span>Subtotal</span>
-                <span>{{ subtotal }}</span>
+                <span>${{ subtotal }}</span>
             </div>
             <div class="summary-item">
                 <span>Shipping estimate</span>
-                <span>{{ shippingEstimate }}</span>
+                <span>${{ shippingEstimate }}</span>
             </div>
             <div class="summary-item">
                 <span>Tax estimate</span>
-                <span>{{ taxEstimate }}</span>
+                <span>${{ taxEstimate }}</span>
             </div>
         </div>
         <div class="summary-total">
             <strong>Order total</strong>
-            <strong>{{ total }}</strong>
+            <strong>${{ total }}</strong>
         </div>
         <button class="checkout-button">Checkout</button>
     </div>
 </template>
 
 <script setup>
+import { computed, ref } from 'vue'
+
 let hideDetails = ref(false);
 const { cartItems } = defineProps(['cartItems']);
 
